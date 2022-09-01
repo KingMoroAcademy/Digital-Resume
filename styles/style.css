@@ -1,0 +1,357 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+:root {
+  --mainTextColor: #000;
+  --secondaryTextColor: rgb(51, 51, 51);
+  --mainLinkColor: #0da2b8;
+  --mainLinkHoverColor: #076775;
+  --mainBorderColor: rgb(218, 218, 251);
+  --mainContainerColor: #fff;
+  --mainBgColor: #f3f3f3;
+  --mainGoldColor: rgb(255, 202, 55);
+  --mainToTopColor: rgb(86, 103, 255, 0.5);
+  --mainToTopHoverColor: rgb(86, 103, 255, 1);
+}
+
+.darkmode {
+  --mainTextColor: #fff;
+  --secondaryTextColor: #bcbcbc;
+  --mainLinkColor: rgb(30, 190, 214);
+  --mainLinkHoverColor: #adebf5;
+  --mainBorderColor: #585d5f;
+  --mainContainerColor: #222;
+  --mainBgColor: #131415;
+  --mainGoldColor: rgb(255, 202, 55);
+  --mainToTopColor: rgb(136, 148, 255);
+  --mainToTopHoverColor: rgb(86, 103, 255, 1);
+}
+
+/*Change Theme color mode depending on system mode [Light/Dark]*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mainTextColor: var(--mainTextColor-dark);
+    --secondaryTextColor: var(--secondaryTextColor-dark);
+    --mainLinkColor: var(--mainLinkColor-dark);
+    --mainLinkHoverColor: var(--mainLinkHoverColor-dark);
+    --mainBorderColor: var(--mainBorderColor-dark);
+    --mainContainerColor: var(--mainContainerColor-dark);
+    --mainBgColor: var(--mainBgColor-dark);
+    --mainGoldColor: var(--mainGoldColor-dark);
+    --mainToTopColor: var(--mainToTopColor);
+    --mainToTopHoverColor: var(--mainToTopHoverColor);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Muli", sans-serif;
+  line-height: 1.5em;
+  box-sizing: border-box;
+}
+
+.fa-solid, .fa-brands {
+  color: var(--mainLinkColor);
+}
+
+body {
+  background: var(--mainBgColor);
+  font-size: 1.2rem;
+}
+body .dark-mode-toggle {
+  position: fixed;
+  top: 1vh;
+  right: 1vh;
+  border: none;
+  outline: none;
+  background: transparent;
+  z-index: 99;
+  cursor: pointer;
+}
+
+p, span, li, strong {
+  font-size: 1em;
+  color: var(--secondaryTextColor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quicksand", sans-serif;
+  color: var(--mainTextColor);
+  margin-bottom: 1rem;
+}
+
+svg {
+  color: var(--mainLinkColor);
+  margin-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--mainLinkColor);
+  font-weight: 500;
+  transition: 0.3s;
+}
+a:hover {
+  color: var(--mainLinkHoverColor);
+}
+
+li {
+  line-height: 1.9em;
+}
+
+.toTopBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 0px;
+  height: 0px;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid var(--mainToTopColor);
+  border-left: 30px solid transparent;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.toTopBtn:hover {
+  border-bottom: 70px solid var(--mainToTopHoverColor);
+}
+
+#container {
+  max-width: 80%;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#container .section {
+  background-color: var(--mainContainerColor);
+  padding: 1rem 2rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+#container #header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+#container #header #profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid var(--mainBorderColor);
+}
+#container #header .intro #user-name {
+  font-size: 2em;
+  line-height: 1em;
+}
+#container #header .intro #bio {
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+#container #header .intro #bio a {
+  font-weight: 300;
+}
+#container #header .intro .email svg {
+  color: var(--mainGoldColor);
+  font-size: 0.8rem;
+}
+#container #header .intro .email a {
+  font-style: italic;
+}
+#container #social-links {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+#container #social-links svg {
+  transition: 0.3s;
+}
+#container #social-links svg:hover {
+  color: var(--mainLinkHoverColor);
+}
+#container #skills {
+  padding: 1rem 4rem;
+}
+#container #skills ul {
+  list-style: none;
+  font-size: 1rem;
+}
+#container #skills ul li {
+  margin: 0 0 0.5rem;
+}
+#container #skills ul li svg {
+  margin-right: 0.5rem;
+}
+#container #techs #textstack-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#container #techs #textstack-container .tech-card {
+  margin: 0.5rem 0;
+  border: 1px solid var(--mainBorderColor);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+#container #techs #textstack-container .tech-card svg {
+  margin-right: 0.5rem;
+}
+#container #work-history h2 {
+  margin-bottom: 0;
+}
+#container #work-history .line-break {
+  background-color: var(--mainBorderColor);
+  height: 0.1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+#container #work-history .work-card {
+  border-left: 1px solid var(--mainBorderColor);
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+}
+#container #work-history .work-card h3 svg {
+  margin-right: 1rem;
+}
+#container #work-history .work-card .date {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.2rem;
+}
+#container #work-history .work-card .date:before {
+  content: "(";
+}
+#container #work-history .work-card .date:after {
+  content: ")";
+}
+#container #work-history .work-card ul {
+  list-style: none;
+}
+#container #projects .project-card {
+  margin: 1rem auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  border-top: 0.1rem solid var(--mainBorderColor);
+}
+#container #projects .project-card h3 {
+  font-weight: 600;
+}
+#container #projects .project-card h3 .title {
+  color: var(--secondaryTextColor);
+  margin: 0 1rem;
+}
+#container #projects .project-card h3 svg {
+  color: var(--mainGoldColor);
+  margin: 0;
+}
+#container #projects .project-card h3 a svg {
+  color: var(--mainLinkColor);
+  margin: 0;
+  transition: 0.3s;
+}
+#container #projects .project-card h3 a svg:hover {
+  color: var(--mainLinkHoverColor);
+}
+#container #projects .project-card .used-techs {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+#container #projects .project-card .used-techs:before {
+  content: "Used Techs: ";
+  font-weight: 600;
+}
+
+@media (max-width: 50rem) {
+  h1, h2 {
+    text-align: center;
+  }
+  #container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
+  #container #header {
+    display: flex;
+    flex-direction: column;
+  }
+  #container #header #profile-pic {
+    flex-grow: 1;
+    border-radius: 50%;
+    min-width: 150px;
+    min-height: 150px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border: 1px solid var(--mainBorderColor);
+  }
+  #container #header .intro #user-name {
+    font-size: 1.8em;
+  }
+  #container #header .intro #bio {
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  #container #header .intro #bio a {
+    font-weight: 300;
+  }
+  #container #header .intro .email {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #container #header .intro .email svg {
+    color: var(--mainGoldColor);
+    font-size: 1rem;
+    margin-right: 0;
+  }
+  #container #social-links svg {
+    margin-right: 0;
+  }
+  #container #skills {
+    padding: 1rem;
+  }
+  #container #techs #textstack-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 0.7rem;
+  }
+  #container #techs #textstack-container .tech-card {
+    border: 1px solid var(--mainBorderColor);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    width: 100%;
+  }
+  #container #techs #textstack-container .tech-card svg {
+    margin-right: 0.5rem;
+  }
+  #container #work-history h2 {
+    margin-bottom: 0;
+  }
+  #container #work-history .line-break {
+    background-color: var(--mainBorderColor);
+    height: 0.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  #container #work-history .work-card h3 svg {
+    margin-right: 0.5rem;
+  }
+  #container #work-history .work-card .date {
+    margin-bottom: 0.5rem;
+  }
+  .toTopBtn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    border-right: 0.7rem solid transparent;
+    border-bottom: 1rem solid var(--mainToTopColor);
+    border-left: 0.7rem solid transparent;
+  }
+  .toTopBtn:hover {
+    border-bottom: 1rem solid var(--mainToTopColor);
+  }
+}/*# sourceMappingURL=style.css.map */
